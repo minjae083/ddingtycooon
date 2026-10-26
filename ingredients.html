@@ -24,10 +24,13 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button:focus-visi
 .section-title h2{margin:0 0 6px;color:var(--gold);font-size:22px}.section-title p{margin:0 0 18px;color:var(--dim);font-size:13px}.materials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:13px}.material-card{min-height:150px;position:relative;background:#1b2a3f;border:1px solid #506785;border-radius:16px;padding:16px;display:grid;justify-items:center;align-content:center;gap:11px;text-align:center;cursor:help}.material-card:hover{border-color:#dbb16c;background:#263e56}.material-art{display:grid;place-items:center;width:86px;height:86px;background:#23354d;border:1px solid #647e9a;border-radius:15px}.material-art img{width:78px;height:78px;image-rendering:pixelated}.material-card strong{font-size:14px}.footnote{font-size:12px;color:var(--dim);text-align:center}
 @media(max-width:1120px){.recipes-grid{grid-template-columns:1fr}.ing-label{font-size:14px}}
 @media(max-width:660px){.wrap{padding:13px 10px 35px;gap:13px}.hero,.panel{padding:15px;border-radius:16px}.top-inner{padding:10px 12px}.top-logo{font-size:15px}.hero h1{font-size:27px}.rank-heading{gap:12px;flex-wrap:wrap}.rank-image{flex-basis:155px;height:51px}.rank-image img{width:144px}.rank-copy h2{font-size:19px}.recipe-top{gap:13px;min-height:90px}.dish-frame{width:88px;height:88px;flex-basis:88px;border-radius:14px}.dish-frame img{width:82px;height:82px}.ingredients-grid{grid-template-columns:1fr}.ing-cell{min-height:64px}.nav-anchors a{padding:8px 10px;font-size:12px}.materials-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.material-card{min-height:132px}}
+
+/* 공식 위키 로스트 치킨 파이 스프라이트 영역, 로딩 실패 시 로컬 아이콘 유지 */
+.dish-frame .official-roast-icon{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;pointer-events:none;border-radius:12px}
 </style></head><body>
 <header class="top"><div class="top-inner"><div class="top-logo"><span class="top-icon">⚔</span>띵타이쿤 요리 레시피 도감</div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="link" href="processing.html">🌾 농작물 가공시설</a><a class="link" href="index.html">← 효율 계산기로</a></div></div></header>
 <main class="wrap">
-<section class="hero"><h1>세레니티 요리 도감</h1><p>우라라 야하~ 쀼릿.</p><div class="summary"><span>요리 14종</span><span>커먼 · 노멀 · 레어 · 에픽</span><span>베이스 1개 = 작물 8개</span></div></section>
+<section class="hero"><h1>세레니티 요리 도감</h1><p>우라라 야하~ 쀼릿.</p><div class="summary"><span>요리 15종</span><span>커먼 · 노멀 · 레어 · 에픽</span><span>베이스 1개 = 작물 8개</span></div></section>
 <nav class="nav-anchors" aria-label="등급별 바로가기"><a href="#grade-커먼">커먼 요리</a><a class="normal" href="#grade-노멀">노멀 요리</a><a class="rare" href="#grade-레어">레어 요리</a><a class="epic" href="#grade-에픽">에픽 요리</a><a href="#materials-0">식재료 이미지</a></nav>
 <section id="grade-커먼" class="panel recipe-section grade-커먼">
       <div class="rank-heading"><div class="rank-image"><img src="assets/ranks/커먼.png" alt="커먼 등급 배지"></div><div class="rank-copy"><h2>커먼 등급 요리</h2><p>3개 레시피 ,아이콘에 마우스를 올리면 재료 이름을 볼 수 있음.</p></div></div>
@@ -81,7 +84,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button:focus-visi
         <div><span class="rank-mini rank-노멀">노멀</span><h3>달콤 시리얼</h3><span class="micro">1개 제작 기준 재료</span></div>
       </div>
       <div class="ingredients-grid"><div class='ing-cell' tabindex='0' data-tip='토마토 베이스 · 2개' aria-label='토마토 베이스 · 2개'><span class='ing-icon'><img loading='lazy' src='assets/ingredients/토마토_베이스.png' alt='' width='48' height='48'></span><span class='ing-label'>토마토 베이스</span><span class='ing-qty'>×2</span></div><div class='ing-cell' tabindex='0' data-tip='달콤한 열매 묶음 · 1개' aria-label='달콤한 열매 묶음 · 1개'><span class='ing-icon'><img loading='lazy' src='assets/ingredients/달콤한_열매_묶음.png' alt='' width='48' height='48'></span><span class='ing-label'>달콤한 열매 묶음</span></div><div class='ing-cell' tabindex='0' data-tip='파인애플 · 1개' aria-label='파인애플 · 1개'><span class='ing-icon'><span class='ing-emoji' aria-hidden='true'>🍍</span></span><span class='ing-label'>파인애플</span></div><div class='ing-cell' tabindex='0' data-tip='밀가루 반죽 · 1개' aria-label='밀가루 반죽 · 1개'><span class='ing-icon'><img loading='lazy' src='assets/ingredients/밀가루_반죽.png' alt='' width='48' height='48'></span><span class='ing-label'>밀가루 반죽</span></div><div class='ing-cell' tabindex='0' data-tip='오일 · 1개' aria-label='오일 · 1개'><span class='ing-icon'><img loading='lazy' src='assets/ingredients/오일.png' alt='' width='48' height='48'></span><span class='ing-label'>오일</span></div></div>
-    </article></div>
+    </article><article class="recipe-card" data-dish="로스트 치킨 파이"><div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="로스트 치킨 파이" aria-label="로스트 치킨 파이"><img loading="lazy" src="assets/dishes/로스트_치킨_파이.png" alt="로스트 치킨 파이" width="112" height="112"><canvas class="official-roast-icon" data-official-roast="" width="112" height="112" aria-hidden="true"></canvas></span><div><span class="rank-mini rank-노멀">노멀</span><h3>로스트 치킨 파이</h3><span class="micro">1개 제작 기준 재료</span></div></div><div class="ingredients-grid"><div class='ing-cell' tabindex='0' data-tip='마늘 베이스 · 2개' aria-label='마늘 베이스 · 2개'><span class='ing-icon'><img loading='lazy' src='assets/ingredients/마늘_베이스.png' alt='' width='48' height='48'></span><span class='ing-label'>마늘 베이스</span><span class='ing-qty'>×2</span></div><div class='ing-cell' tabindex='0' data-tip='당근 묶음 · 1개' aria-label='당근 묶음 · 1개'><span class='ing-icon'><img loading='lazy' src='assets/ingredients/당근_묶음.png' alt='' width='48' height='48'></span><span class='ing-label'>당근 묶음</span></div><div class='ing-cell' tabindex='0' data-tip='버터 조각 · 1개' aria-label='버터 조각 · 1개'><span class='ing-icon'><img loading='lazy' src='assets/ingredients/버터_조각.png' alt='' width='48' height='48'></span><span class='ing-label'>버터 조각</span></div><div class='ing-cell' tabindex='0' data-tip='익힌 닭고기 · 1개' aria-label='익힌 닭고기 · 1개'><span class='ing-icon'><span class='ing-emoji' aria-hidden='true'>🍗</span></span><span class='ing-label'>익힌 닭고기</span></div><div class='ing-cell' tabindex='0' data-tip='익힌 닭 다리살 · 1개' aria-label='익힌 닭 다리살 · 1개'><span class='ing-icon'><span class='ing-emoji' aria-hidden='true'>🍗</span></span><span class='ing-label'>익힌 닭 다리살</span></div></div></article></div>
     </section><section id="grade-레어" class="panel recipe-section grade-레어">
       <div class="rank-heading"><div class="rank-image"><img src="assets/ranks/레어.png" alt="레어 등급 배지"></div><div class="rank-copy"><h2>레어 등급 요리</h2><p>쿠아아아아아아아아아아아.</p></div></div>
       <div class="recipes-grid"><article class="recipe-card" data-dish="스윗 치킨 햄버거">
@@ -219,4 +222,28 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button:focus-visi
     </article></div>
     </section>
 <div class="footnote">본 제작자는 모몽가를 정말정말 좋아한답니다~~.</div>
-</main></body></html>
+</main>
+<script>
+// 공식 위키 '요리' 이미지(노멀 요리 5종 가로 묶음)의 다섯 번째 이미지 표시.
+// 이미지를 로드하지 못하면 로컬 PNG 아이콘만 보입니다.
+(function(){
+  const url='https://cf.channel.io/document/spaces/14110/usermedia/6a2b7f83b6fdb77c3aee';
+  const canvas=document.querySelector('[data-official-roast]');
+  if(!canvas) return;
+  const sprite=new Image();
+  sprite.onload=function(){
+    const ctx=canvas.getContext('2d');
+    if(!ctx) return;
+    // 원본 이미지의 다섯 번째 아이템은 약 x=256 위치의 16px 픽셀 이미지.
+    // 네 모서리의 투명 여백을 보존하도록 25px 정사각형으로 추출해 확대.
+    const sw=Math.min(26,sprite.naturalHeight+7);
+    const sx=Math.min(Math.max(0,sprite.naturalWidth-sw),245);
+    ctx.imageSmoothingEnabled=false;
+    ctx.clearRect(0,0,112,112);
+    ctx.drawImage(sprite,sx,0,sw,sprite.naturalHeight,4,4,104,104);
+  };
+  sprite.onerror=function(){ canvas.style.display='none'; };
+  sprite.src=url;
+})();
+</script>
+</body></html>
