@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>띵타이쿤 황금 요리 도감 · v33</title>
+<style>
+:root{--background:#101725;--panel:#202d43;--panel2:#192638;--panel3:#24364e;--line:#425772;--gold:#f5cf83;--white:#f5f0e6;--dim:#b8c8e0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif;color:var(--white);background:radial-gradient(ellipse at 70% -5%,#263e60,#131d2d 52%,#101725)}
+a{color:inherit;text-decoration:none}button,input{font:inherit}button:focus-visible,input:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #f2c66d;outline-offset:3px}
+.top{position:sticky;top:0;z-index:40;background:#162338ee;backdrop-filter:blur(12px);border-bottom:1px solid #9a7948;box-shadow:0 6px 25px #050b14a0}
+.top-inner{max-width:1450px;margin:auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.top-logo{font-size:19px;font-weight:900;color:#fff2cf;display:flex;align-items:center;gap:10px}.top-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;border:1px solid #a9824e;background:#4a3625}
+.link{display:inline-flex;align-items:center;border:1px solid #aa8a59;border-radius:12px;padding:10px 16px;background:#35425a;color:#ffefce;font-size:14px;font-weight:800;transition:filter .15s,transform .15s}.link:hover{filter:brightness(1.15);transform:translateY(-1px)}
+.wrap{max-width:1450px;margin:0 auto;padding:24px 18px 55px;display:grid;gap:20px}.hero,.panel{background:linear-gradient(130deg,#213249,#1b2a40);border:1px solid #4d6480;border-radius:22px;box-shadow:0 15px 38px #070d18aa}
+.hero{background:linear-gradient(125deg,#63462b,#2a3d59 73%);padding:30px 32px}.hero h1{font-size:clamp(27px,3vw,42px);margin:0 0 10px;color:#ffe4a5}.hero p{margin:0;color:#f6e5cf;line-height:1.7}.summary{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}.summary span{background:#14233a88;border:1px solid #a2855c80;padding:9px 13px;border-radius:999px;font-size:13px;font-weight:750}
+.nav-anchors{display:flex;gap:9px;flex-wrap:wrap}.nav-anchors a{border:1px solid #526c8e;background:#263851;padding:10px 14px;border-radius:11px;font-weight:750;font-size:14px}.nav-anchors a:hover{border-color:#e7b965;background:#384c67}.nav-anchors .normal{color:#baf0ae}.nav-anchors .rare{color:#abd7ff}.nav-anchors .epic{color:#ffb7af}
+.panel{padding:23px;scroll-margin-top:96px}.rank-heading{display:flex;align-items:center;gap:22px;min-height:72px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #354c69}.rank-image{flex:0 0 230px;height:65px;border:1px solid #657b93;border-radius:15px;background:#152237;display:flex;align-items:center;justify-content:center}
+.rank-image img{width:192px;max-width:92%;height:auto;max-height:58px;object-fit:contain;image-rendering:pixelated}.rank-copy h2{font-size:24px;color:var(--gold);margin:0 0 5px}.rank-copy p{margin:0;color:var(--dim);font-size:13px;line-height:1.5}
+.recipes-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}.recipe-card{min-width:0;background:var(--panel2);border:1px solid #4a6380;border-radius:17px;padding:18px;display:flex;flex-direction:column;gap:17px}.recipe-top{display:flex;gap:17px;align-items:center;min-height:116px}
+.dish-frame{display:grid;place-items:center;flex:0 0 116px;width:116px;height:116px;border-radius:18px;background:#f0ddcb;border:3px solid #97744b;box-shadow:0 0 0 4px #233247;position:relative;cursor:help;overflow:hidden}.dish-frame img{width:110px;height:110px;object-fit:contain;image-rendering:pixelated;border-radius:16px;border:1px solid rgba(86,69,44,.18);background:rgba(255,255,255,.18)}
+.recipe-top h3{font-size:clamp(18px,1.8vw,23px);line-height:1.3;margin:7px 0 4px;word-break:keep-all;color:#fff0cf}.micro{font-size:12px;color:var(--dim)}.rank-mini{display:inline-flex;align-items:center;border:1px solid #8b7a56;background:#4b422c;color:#ffdc92;font-size:11px;padding:3px 9px;border-radius:999px;font-weight:800}.rank-노멀{color:#b7e9b1;background:#2d4b3e;border-color:#47866b}.rank-레어{color:#c6e5ff;background:#2a4768;border-color:#4e8aca}.rank-에픽{color:#ffc6b8;background:#5b333b;border-color:#ae5a57}
+.ingredients-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ing-cell{min-width:0;position:relative;display:flex;align-items:center;gap:10px;padding:9px 11px;background:var(--panel3);border:1px solid #526982;border-radius:13px;min-height:68px;cursor:help;transition:border-color .15s,background .15s}.ing-cell:hover,.ing-cell:focus-visible{background:#314967;border-color:#cca76c;z-index:5}
+.ing-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:11px;background:#1a2739;border:1px solid #566d87;overflow:hidden}.ing-icon img{width:46px;height:46px;object-fit:contain;image-rendering:pixelated;border-radius:10px;border:1px solid rgba(255,241,220,.14);background:rgba(255,255,255,.06)}.ing-emoji{font-size:30px;line-height:1}.ing-label{flex:1;min-width:0;color:#edf2fa;font-size:13px;font-weight:750;line-height:1.36;word-break:keep-all;overflow-wrap:anywhere}.ing-qty{flex:0 0 auto;padding:4px 8px;background:#132136;border-radius:999px;color:#ffdda0;border:1px solid #6d7f95;font-size:12px;font-weight:900}
+[data-tip]::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 7px);transform:translate(-50%,4px);pointer-events:none;min-width:max-content;max-width:260px;white-space:normal;background:#0c1728;color:#fff4da;padding:9px 13px;border:1px solid #d4ac69;border-radius:9px;z-index:30;font-size:13px;font-weight:750;line-height:1.35;box-shadow:0 9px 20px #060c17aa;opacity:0;visibility:hidden;transition:opacity .12s,transform .12s}
+[data-tip]:hover::after,[data-tip]:focus-visible::after{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.section-title h2{margin:0 0 6px;color:var(--gold);font-size:22px}.section-title p{margin:0 0 18px;color:var(--dim);font-size:13px}.materials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:13px}.material-card{min-height:150px;position:relative;background:#1b2a3f;border:1px solid #506785;border-radius:16px;padding:16px;display:grid;justify-items:center;align-content:center;gap:11px;text-align:center;cursor:help}.material-card:hover{border-color:#dbb16c;background:#263e56}.material-art{display:grid;place-items:center;width:86px;height:86px;background:#23354d;border:1px solid #647e9a;border-radius:15px;overflow:hidden}.material-art img{width:78px;height:78px;image-rendering:pixelated;border-radius:13px;border:1px solid rgba(255,241,220,.14);background:rgba(255,255,255,.06)}.material-card strong{font-size:14px}.footnote{font-size:12px;color:var(--dim);text-align:center}
+@media(max-width:1120px){.recipes-grid{grid-template-columns:1fr}.ing-label{font-size:14px}}
+@media(max-width:660px){.wrap{padding:13px 10px 35px;gap:13px}.hero,.panel{padding:15px;border-radius:16px}.top-inner{padding:10px 12px}.top-logo{font-size:15px}.hero h1{font-size:27px}.rank-heading{gap:12px;flex-wrap:wrap}.rank-image{flex-basis:155px;height:51px}.rank-image img{width:144px}.rank-copy h2{font-size:19px}.recipe-top{gap:13px;min-height:90px}.dish-frame{width:88px;height:88px;flex-basis:88px;border-radius:14px}.dish-frame img{width:82px;height:82px}.ingredients-grid{grid-template-columns:1fr}.ing-cell{min-height:64px}.nav-anchors a{padding:8px 10px;font-size:12px}.materials-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.material-card{min-height:132px}}
+
+/* 공식 위키 로스트 치킨 파이 스프라이트 영역, 로딩 실패 시 로컬 아이콘 유지 */
+.dish-frame .official-roast-icon{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;pointer-events:none;border-radius:12px}
+
+/* Golden catalog adopts the same visual, tooltip and responsive layout as ingredients.html. */
+.hero {background:linear-gradient(125deg,#6d4b27,#2a3d59 73%)}
+.recipes-grid .recipe-card {gap:13px}
+.recipe-card .dish-frame{cursor:help;overflow:visible}
+.dish-frame img {object-fit:contain;image-rendering:pixelated}
+.dish-frame:hover img {transform:scale(1.035)}
+.dish-frame img {transition:transform .13s ease}
+.recipe-price{font-size:13px;color:#ffdda0;font-weight:850;margin-top:7px}
+.method-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.method {background:#22334b;border:1px solid #4e6786;border-radius:14px;padding:11px;min-width:0}
+.method h4{margin:0 0 10px;color:#f5cf83;font-size:14px;font-weight:850}
+.method h4 small{display:block;font-size:11px;margin-top:3px;color:#bed1e9;font-weight:600}
+.method .ingredients-grid{display:flex;flex-direction:column;gap:8px}
+.method .ing-cell{min-height:58px;padding:6px 8px;gap:8px;flex-wrap:nowrap}
+.method .ing-icon{width:42px;height:42px;flex-basis:42px}
+.method .ing-icon img{width:40px;height:40px;image-rendering:pixelated}
+.method .ing-label{font-size:12px;min-width:0}
+.method .ing-qty{font-size:11px;white-space:nowrap;padding:3px 6px}
+.rank-전설{background:#584323;color:#ffe5a3;border-color:#b08b54}
+.rank-MYTHIC{background:#343968;color:#dee0ff;border-color:#6876c6}
+.golden-rank-image img{width:192px;max-width:92%;height:auto;max-height:58px;object-fit:contain;image-rendering:pixelated}
+.controls{display:flex;gap:9px;flex-wrap:wrap}
+.filter-btn{cursor:pointer;border:1px solid #526c8e;border-radius:10px;background:#263851;color:#eaf0fc;font:inherit;font-weight:850;padding:10px 14px}
+.filter-btn.active{color:#ffe2a6;background:#6b4d28;border-color:#d3aa63}
+.method.is-hidden {display:none}
+.method-grid:has(.method.is-hidden){grid-template-columns:1fr}
+.ingredients-grid .ing-cell:focus-visible,.dish-frame:focus-visible {outline:3px solid #f0c873;outline-offset:3px}
+@media (max-width:780px){.method-grid{grid-template-columns:1fr}.rank-image{flex-basis:160px}.rank-image img{max-width:94%}}
+@media (max-width:500px){.recipe-top{align-items:center}.recipe-price{font-size:12px}.rank-heading{flex-direction:column;align-items:flex-start}.rank-image{flex-basis:auto;min-height:56px;width:100%}}
+
+.recipe-card{padding:22px 20px;gap:16px}
+.recipe-top{gap:20px;align-items:flex-start;min-height:126px}
+.recipe-top > div{display:flex;flex-direction:column;justify-content:center;gap:6px;min-width:0}
+.recipe-top h3{margin:3px 0 0;font-size:30px;letter-spacing:-.5px}
+.recipe-price{font-size:14px;color:#ffdda0;font-weight:850;margin-top:0}
+.method-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.method{background:#22334b;border:1px solid #4e6786;border-radius:16px;padding:13px;min-width:0;box-shadow:inset 0 0 0 1px rgba(255,240,214,.04)}
+.method h4{margin:0 0 10px;color:#f5cf83;font-size:14px;font-weight:850}
+.method .ing-cell{min-height:62px;border-radius:14px}
+.controls{display:flex;gap:9px;flex-wrap:wrap}
+.filter-btn{cursor:pointer;border:1px solid #526c8e;border-radius:10px;background:#263851;color:#eaf0fc;font:inherit;font-weight:850;padding:10px 14px}
+.filter-btn.active{color:#ffe2a6;background:#6b4d28;border-color:#d3aa63}
+.rank-mini{font-size:12px;padding:5px 10px}
+@media (max-width:820px){.recipe-top h3{font-size:23px}.recipe-card{padding:18px}.recipe-top{gap:15px}}
+
+
+
+/* v30: golden catalog cleaned to match regular catalog cards */
+.recipe-card{padding:20px;border-radius:20px;gap:18px;box-shadow:0 12px 28px rgba(5,11,20,.22)}
+.recipe-top{gap:20px;align-items:flex-start}
+.recipe-top > div{display:flex;flex-direction:column;gap:8px;min-width:0;padding-top:4px}
+.recipe-top h3{margin:0;font-size:clamp(20px,1.8vw,24px)}
+.dish-frame{width:122px;height:122px;flex-basis:122px;border-radius:20px;overflow:hidden}
+.dish-frame img{width:114px;height:114px;border-radius:16px;border:1px solid rgba(255,241,220,.18);background:rgba(255,255,255,.08)}
+.method-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.method{padding:13px;border-radius:15px;background:#22334b;border-color:#587290;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.method h4{margin-bottom:11px}
+.method .ingredients-grid{display:flex;flex-direction:column;gap:8px}
+.method .ing-cell{min-height:62px;border-radius:14px}
+.controls{margin-top:4px}
+.filter-btn{min-width:92px}
+@media(max-width:780px){
+  .recipe-top{gap:16px}
+  .dish-frame{width:96px;height:96px;flex-basis:96px;border-radius:16px}
+  .dish-frame img{width:88px;height:88px;border-radius:13px}
+  .method-grid{grid-template-columns:1fr}
+}
+
+
+/* v30: golden recipe inputs in precisely aligned left/right columns. */
+.method-grid,
+.method-grid:has(.method.is-hidden){display:grid;grid-template-columns:minmax(0,1fr)!important;gap:11px}
+.method{width:100%;padding:12px 14px;border-radius:15px}
+.method .ingredients-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.method .ing-cell{min-width:0;min-height:65px;padding:8px 10px;gap:10px;display:flex;align-items:center;border-radius:13px}
+.method .ing-icon{flex:0 0 46px;width:46px;height:46px;border-radius:11px;overflow:hidden}
+.method .ing-icon img{width:44px;height:44px;object-fit:contain;border-radius:9px;border:1px solid rgba(255,241,220,.2)}
+.method .ing-label{font-size:13px;font-weight:800;white-space:normal;word-break:keep-all;overflow-wrap:break-word;line-height:1.4;min-width:0;flex:1}
+.method .ing-qty{flex:0 0 auto;font-size:12px;white-space:nowrap;padding:4px 8px;border-radius:9px}
+.method h4{margin:0 0 10px;padding:0 1px;color:#ffdb92}
+.method h4 small{display:inline-block;margin-left:8px;font-size:11px;color:#bfcee2;font-weight:650}
+.recipe-card{gap:15px}
+@media(max-width:700px){
+ .method .ingredients-grid{grid-template-columns:minmax(0,1fr)}
+ .method .ing-cell{min-height:59px}
+ .method h4 small{display:block;margin-left:0}
+}
+
+
+/* v31: golden page cards aligned like other recipe pages */
+.method-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.method{padding:12px 14px!important;border-radius:15px!important;background:#283a54!important;border:1px solid #5a7190!important}
+.method .ingredients-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+.method .ing-cell{border-radius:12px!important;min-height:66px!important;background:#314764!important;border:1px solid #607a9b!important}
+.method .ing-icon{border-radius:11px!important;overflow:hidden!important;background:#152238!important;border:1px solid #6a86a5!important}
+.method .ing-icon img{width:100%!important;height:100%!important;object-fit:contain!important;padding:4px!important;border-radius:10px!important}
+@media(max-width:760px){.method-grid{grid-template-columns:1fr!important}.method .ingredients-grid{grid-template-columns:1fr!important}}
+
+
+/* v33: pixel-clean transparent sprites with a consistent rounded frame */
+.dish-frame{width:108px;height:108px;flex:0 0 108px;border-radius:18px;overflow:hidden;border:3px solid #a28156;background:#ead8c5;box-shadow:0 0 0 4px #24374e}
+.dish-frame img{display:block;width:100%!important;height:100%!important;object-fit:contain!important;padding:0!important;border:0!important;border-radius:15px!important;background:transparent!important;image-rendering:pixelated!important}
+.ing-icon{width:45px;height:45px;flex:0 0 45px;border-radius:11px;overflow:hidden}
+.ing-icon img{display:block;width:100%!important;height:100%!important;object-fit:contain!important;padding:0!important;border:0!important;border-radius:10px!important;background:transparent!important;image-rendering:pixelated!important}
+.recipe-card{gap:13px}
+.recipe-top{min-height:108px;gap:16px}
+.ing-cell{min-height:61px;padding:7px 9px;gap:9px}
+@media(max-width:660px){.dish-frame{width:88px;height:88px;flex-basis:88px;border-radius:15px}.recipe-top{min-height:88px}}
+
+.method .ing-icon{width:44px;height:44px;flex:0 0 44px;border-radius:10px}
+.method .ing-icon img{width:100%!important;height:100%!important;object-fit:contain!important;border:0!important;padding:0!important}
+.method .ing-cell{min-height:60px!important;padding:6px 8px!important}
+
+
+.is-hidden{display:none!important}
+</style></head><body>
+<header class="top"><div class="top-inner"><div class="top-logo"><span class="top-icon">✦</span>띵타이쿤 황금 요리 도감</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><a class="link" href="ingredients.html">요리 재료 도감</a><a class="link" href="processing.html">농작물 가공시설</a><a class="link" href="enhancement.html">⛏ 강화 제작 시설</a><a class="link" href="index.html">← 효율 계산기로</a></div></div></header>
+<main class="wrap">
+<section class="hero"><h1>세레니티 황금 요리 도감</h1><p>우라라라라라라라라라라라라라라라 이얏~~~하~~.</p>
+<div class="summary"><span>레어 · 에픽 · 전설 · MYTHIC</span><span>금 가루 · 대량 제작</span><span>식용 금 가루 · 개별 제작</span></div></section>
+<nav class="nav-anchors" aria-label="등급별 바로가기"><a href="#grade-rare">RARE</a><a href="#grade-epic">EPIC</a><a href="#grade-legend">LEGENDARY</a><a href="#grade-mythic">MYTHIC</a><a href="#gold-ingredients">금 가루 이미지</a></nav>
+<div class="controls" role="group" aria-label="제작 방식 표시"><button type="button" class="filter-btn active" data-view="bulk">대량 제작</button><button type="button" class="filter-btn" data-view="single">개별 제작</button></div>
+<section id="grade-rare" class="panel recipe-section grade-rare">
+<div class="rank-heading"><div class="rank-image golden-rank-image"><img loading="lazy" src="assets/ranks/레어.png?v=34" alt="레어 등급 배지"></div><div class="rank-copy"><h2>RARE 황금 요리</h2><p>쿠아아아아아아아</p></div></div>
+<div class="recipes-grid"><article class="recipe-card" data-dish="황금 토마토 스파게티">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 토마토 스파게티" aria-label="황금 토마토 스파게티"><img loading="lazy" src="assets/dishes/황금_토마토_스파게티.png?v=34" alt="황금 토마토 스파게티" width="112" height="112"></span>
+<div><span class="rank-mini rank-레어">레어</span><h3>황금 토마토 스파게티</h3><div class="recipe-price">판매가 518 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×20<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="토마토 스파게티 · 20개" aria-label="토마토 스파게티 · 20개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/토마토_스파게티.png?v=34" alt="토마토 스파게티" width="42" height="42"></span><span class="ing-label">토마토 스파게티</span><span class="ing-qty">20개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="토마토 스파게티 · 2개" aria-label="토마토 스파게티 · 2개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/토마토_스파게티.png?v=34" alt="토마토 스파게티" width="42" height="42"></span><span class="ing-label">토마토 스파게티</span><span class="ing-qty">2개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 어니언 링">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 어니언 링" aria-label="황금 어니언 링"><img loading="lazy" src="assets/dishes/황금_어니언_링.png?v=34" alt="황금 어니언 링" width="112" height="112"></span>
+<div><span class="rank-mini rank-레어">레어</span><h3>황금 어니언 링</h3><div class="recipe-price">판매가 562 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×20<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="어니언 링 · 20개" aria-label="어니언 링 · 20개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/어니언_링.png?v=34" alt="어니언 링" width="42" height="42"></span><span class="ing-label">어니언 링</span><span class="ing-qty">20개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="어니언 링 · 2개" aria-label="어니언 링 · 2개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/어니언_링.png?v=34" alt="어니언 링" width="42" height="42"></span><span class="ing-label">어니언 링</span><span class="ing-qty">2개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 갈릭 케이크">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 갈릭 케이크" aria-label="황금 갈릭 케이크"><img loading="lazy" src="assets/dishes/황금_갈릭_케이크.png?v=34" alt="황금 갈릭 케이크" width="112" height="112"></span>
+<div><span class="rank-mini rank-레어">레어</span><h3>황금 갈릭 케이크</h3><div class="recipe-price">판매가 399 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×20<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="갈릭 케이크 · 20개" aria-label="갈릭 케이크 · 20개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/갈릭_케이크.png?v=34" alt="갈릭 케이크" width="42" height="42"></span><span class="ing-label">갈릭 케이크</span><span class="ing-qty">20개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="갈릭 케이크 · 2개" aria-label="갈릭 케이크 · 2개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/갈릭_케이크.png?v=34" alt="갈릭 케이크" width="42" height="42"></span><span class="ing-label">갈릭 케이크</span><span class="ing-qty">2개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article></div></section>
+<section id="grade-epic" class="panel recipe-section grade-epic">
+<div class="rank-heading"><div class="rank-image golden-rank-image"><img loading="lazy" src="assets/ranks/에픽.png?v=34" alt="에픽 등급 배지"></div><div class="rank-copy"><h2>EPIC 황금 요리</h2><p>샤븐님....!!</p></div></div>
+<div class="recipes-grid"><article class="recipe-card" data-dish="황금 삼겹살 토마토 찌개">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 삼겹살 토마토 찌개" aria-label="황금 삼겹살 토마토 찌개"><img loading="lazy" src="assets/dishes/황금_삼겹살_토마토_찌개.png?v=34" alt="황금 삼겹살 토마토 찌개" width="112" height="112"></span>
+<div><span class="rank-mini rank-에픽">에픽</span><h3>황금 삼겹살 토마토 찌개</h3><div class="recipe-price">판매가 681 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×13<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="삼겹살 토마토 찌개 · 13개" aria-label="삼겹살 토마토 찌개 · 13개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/삼겹살_토마토_찌개.png?v=34" alt="삼겹살 토마토 찌개" width="42" height="42"></span><span class="ing-label">삼겹살 토마토 찌개</span><span class="ing-qty">13개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="삼겹살 토마토 찌개 · 1개" aria-label="삼겹살 토마토 찌개 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/삼겹살_토마토_찌개.png?v=34" alt="삼겹살 토마토 찌개" width="42" height="42"></span><span class="ing-label">삼겹살 토마토 찌개</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 삼색 아이스크림">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 삼색 아이스크림" aria-label="황금 삼색 아이스크림"><img loading="lazy" src="assets/dishes/황금_삼색_아이스크림.png?v=34" alt="황금 삼색 아이스크림" width="112" height="112"></span>
+<div><span class="rank-mini rank-에픽">에픽</span><h3>황금 삼색 아이스크림</h3><div class="recipe-price">판매가 2,196 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×13<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="삼색 아이스크림 · 13개" aria-label="삼색 아이스크림 · 13개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/삼색_아이스크림.png?v=34" alt="삼색 아이스크림" width="42" height="42"></span><span class="ing-label">삼색 아이스크림</span><span class="ing-qty">13개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="삼색 아이스크림 · 1개" aria-label="삼색 아이스크림 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/삼색_아이스크림.png?v=34" alt="삼색 아이스크림" width="42" height="42"></span><span class="ing-label">삼색 아이스크림</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 마늘 양갈비 핫도그">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 마늘 양갈비 핫도그" aria-label="황금 마늘 양갈비 핫도그"><img loading="lazy" src="assets/dishes/황금_마늘_양갈비_핫도그.png?v=34" alt="황금 마늘 양갈비 핫도그" width="112" height="112"></span>
+<div><span class="rank-mini rank-에픽">에픽</span><h3>황금 마늘 양갈비 핫도그</h3><div class="recipe-price">판매가 1,280 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×13<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="마늘 양갈비 핫도그 · 13개" aria-label="마늘 양갈비 핫도그 · 13개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/마늘_양갈비_핫도그.png?v=34" alt="마늘 양갈비 핫도그" width="42" height="42"></span><span class="ing-label">마늘 양갈비 핫도그</span><span class="ing-qty">13개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="마늘 양갈비 핫도그 · 1개" aria-label="마늘 양갈비 핫도그 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/마늘_양갈비_핫도그.png?v=34" alt="마늘 양갈비 핫도그" width="42" height="42"></span><span class="ing-label">마늘 양갈비 핫도그</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 달콤 시리얼">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 달콤 시리얼" aria-label="황금 달콤 시리얼"><img loading="lazy" src="assets/dishes/황금_달콤_시리얼.png?v=34" alt="황금 달콤 시리얼" width="112" height="112"></span>
+<div><span class="rank-mini rank-에픽">에픽</span><h3>황금 달콤 시리얼</h3><div class="recipe-price">판매가 1,789 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×13<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="달콤 시리얼 · 13개" aria-label="달콤 시리얼 · 13개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/달콤_시리얼.png?v=34" alt="달콤 시리얼" width="42" height="42"></span><span class="ing-label">달콤 시리얼</span><span class="ing-qty">13개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="달콤 시리얼 · 1개" aria-label="달콤 시리얼 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/달콤_시리얼.png?v=34" alt="달콤 시리얼" width="42" height="42"></span><span class="ing-label">달콤 시리얼</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 로스트 치킨 파이">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 로스트 치킨 파이" aria-label="황금 로스트 치킨 파이"><img loading="lazy" src="assets/dishes/황금_로스트_치킨_파이.png?v=34" alt="황금 로스트 치킨 파이" width="112" height="112"></span>
+<div><span class="rank-mini rank-에픽">에픽</span><h3>황금 로스트 치킨 파이</h3><div class="recipe-price">판매가 1,722 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×13<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="로스트 치킨 파이 · 13개" aria-label="로스트 치킨 파이 · 13개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/로스트_치킨_파이.png?v=34" alt="로스트 치킨 파이" width="42" height="42"></span><span class="ing-label">로스트 치킨 파이</span><span class="ing-qty">13개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="로스트 치킨 파이 · 1개" aria-label="로스트 치킨 파이 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/로스트_치킨_파이.png?v=34" alt="로스트 치킨 파이" width="42" height="42"></span><span class="ing-label">로스트 치킨 파이</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article></div></section>
+<section id="grade-legend" class="panel recipe-section grade-legend">
+<div class="rank-heading"><div class="rank-image golden-rank-image"><img loading="lazy" src="assets/ranks/전설.png?v=34" alt="전설 등급 배지"></div><div class="rank-copy"><h2>LEGENDARY 황금 요리</h2><p>쀼릿</p></div></div>
+<div class="recipes-grid"><article class="recipe-card" data-dish="황금 스윗 치킨 햄버거">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 스윗 치킨 햄버거" aria-label="황금 스윗 치킨 햄버거"><img loading="lazy" src="assets/dishes/황금_스윗_치킨_햄버거.png?v=34" alt="황금 스윗 치킨 햄버거" width="112" height="112"></span>
+<div><span class="rank-mini rank-전설">전설</span><h3>황금 스윗 치킨 햄버거</h3><div class="recipe-price">판매가 2,923 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×10<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="스윗 치킨 햄버거 · 10개" aria-label="스윗 치킨 햄버거 · 10개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/스윗_치킨_햄버거.png?v=34" alt="스윗 치킨 햄버거" width="42" height="42"></span><span class="ing-label">스윗 치킨 햄버거</span><span class="ing-qty">10개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="스윗 치킨 햄버거 · 1개" aria-label="스윗 치킨 햄버거 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/스윗_치킨_햄버거.png?v=34" alt="스윗 치킨 햄버거" width="42" height="42"></span><span class="ing-label">스윗 치킨 햄버거</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 토마토 파인애플 피자">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 토마토 파인애플 피자" aria-label="황금 토마토 파인애플 피자"><img loading="lazy" src="assets/dishes/황금_토마토_파인애플_피자.png?v=34" alt="황금 토마토 파인애플 피자" width="112" height="112"></span>
+<div><span class="rank-mini rank-전설">전설</span><h3>황금 토마토 파인애플 피자</h3><div class="recipe-price">판매가 1,369 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×10<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="토마토 파인애플 피자 · 10개" aria-label="토마토 파인애플 피자 · 10개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/토마토_파인애플_피자.png?v=34" alt="토마토 파인애플 피자" width="42" height="42"></span><span class="ing-label">토마토 파인애플 피자</span><span class="ing-qty">10개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="토마토 파인애플 피자 · 1개" aria-label="토마토 파인애플 피자 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/토마토_파인애플_피자.png?v=34" alt="토마토 파인애플 피자" width="42" height="42"></span><span class="ing-label">토마토 파인애플 피자</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 양파 수프">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 양파 수프" aria-label="황금 양파 수프"><img loading="lazy" src="assets/dishes/황금_양파_수프.png?v=34" alt="황금 양파 수프" width="112" height="112"></span>
+<div><span class="rank-mini rank-전설">전설</span><h3>황금 양파 수프</h3><div class="recipe-price">판매가 3,209 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×10<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="양파 수프 · 10개" aria-label="양파 수프 · 10개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/양파_수프.png?v=34" alt="양파 수프" width="42" height="42"></span><span class="ing-label">양파 수프</span><span class="ing-qty">10개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="양파 수프 · 1개" aria-label="양파 수프 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/양파_수프.png?v=34" alt="양파 수프" width="42" height="42"></span><span class="ing-label">양파 수프</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 허브 삼겹살 찜">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 허브 삼겹살 찜" aria-label="황금 허브 삼겹살 찜"><img loading="lazy" src="assets/dishes/황금_허브_삼겹살_찜.png?v=34" alt="황금 허브 삼겹살 찜" width="112" height="112"></span>
+<div><span class="rank-mini rank-전설">전설</span><h3>황금 허브 삼겹살 찜</h3><div class="recipe-price">판매가 2,208 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×10<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="허브 삼겹살 찜 · 10개" aria-label="허브 삼겹살 찜 · 10개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/허브_삼겹살_찜.png?v=34" alt="허브 삼겹살 찜" width="42" height="42"></span><span class="ing-label">허브 삼겹살 찜</span><span class="ing-qty">10개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="허브 삼겹살 찜 · 1개" aria-label="허브 삼겹살 찜 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/허브_삼겹살_찜.png?v=34" alt="허브 삼겹살 찜" width="42" height="42"></span><span class="ing-label">허브 삼겹살 찜</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article></div></section>
+<section id="grade-mythic" class="panel recipe-section grade-mythic">
+<div class="rank-heading"><div class="rank-image golden-rank-image"><img loading="lazy" src="assets/ranks/MYTHIC.png?v=34" alt="MYTHIC 등급 배지"></div><div class="rank-copy"><h2>MYTHIC 황금 요리</h2><p>우라라 야하</p></div></div>
+<div class="recipes-grid"><article class="recipe-card" data-dish="황금 토마토 라자냐">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 토마토 라자냐" aria-label="황금 토마토 라자냐"><img loading="lazy" src="assets/dishes/황금_토마토_라자냐.png?v=34" alt="황금 토마토 라자냐" width="112" height="112"></span>
+<div><span class="rank-mini rank-MYTHIC">MYTHIC</span><h3>황금 토마토 라자냐</h3><div class="recipe-price">판매가 4,574 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×10<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="토마토 라자냐 · 10개" aria-label="토마토 라자냐 · 10개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/토마토_라자냐.png?v=34" alt="토마토 라자냐" width="42" height="42"></span><span class="ing-label">토마토 라자냐</span><span class="ing-qty">10개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="토마토 라자냐 · 1개" aria-label="토마토 라자냐 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/토마토_라자냐.png?v=34" alt="토마토 라자냐" width="42" height="42"></span><span class="ing-label">토마토 라자냐</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 딥 크림 빠네">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 딥 크림 빠네" aria-label="황금 딥 크림 빠네"><img loading="lazy" src="assets/dishes/황금_딥_크림_빠네.png?v=34" alt="황금 딥 크림 빠네" width="112" height="112"></span>
+<div><span class="rank-mini rank-MYTHIC">MYTHIC</span><h3>황금 딥 크림 빠네</h3><div class="recipe-price">판매가 1,584 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×10<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="딥 크림 빠네 · 10개" aria-label="딥 크림 빠네 · 10개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/딥_크림_빠네.png?v=34" alt="딥 크림 빠네" width="42" height="42"></span><span class="ing-label">딥 크림 빠네</span><span class="ing-qty">10개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="딥 크림 빠네 · 1개" aria-label="딥 크림 빠네 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/딥_크림_빠네.png?v=34" alt="딥 크림 빠네" width="42" height="42"></span><span class="ing-label">딥 크림 빠네</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article><article class="recipe-card" data-dish="황금 트리플 소갈비 꼬치">
+<div class="recipe-top"><span class="dish-frame" tabindex="0" data-tip="황금 트리플 소갈비 꼬치" aria-label="황금 트리플 소갈비 꼬치"><img loading="lazy" src="assets/dishes/황금_트리플_소갈비_꼬치.png?v=34" alt="황금 트리플 소갈비 꼬치" width="112" height="112"></span>
+<div><span class="rank-mini rank-MYTHIC">MYTHIC</span><h3>황금 트리플 소갈비 꼬치</h3><div class="recipe-price">판매가 2,967 G</div></div></div>
+<div class="method-grid">
+<section class="method" data-method="bulk"><h4>대량 제작 · 완성품 ×10<small>금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="트리플 소갈비 꼬치 · 10개" aria-label="트리플 소갈비 꼬치 · 10개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/트리플_소갈비_꼬치.png?v=34" alt="트리플 소갈비 꼬치" width="42" height="42"></span><span class="ing-label">트리플 소갈비 꼬치</span><span class="ing-qty">10개</span></div><div class="ing-cell" tabindex="0" data-tip="금 가루 · 1개" aria-label="금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루" width="42" height="42"></span><span class="ing-label">금 가루</span><span class="ing-qty">1개</span></div></div></section>
+<section class="method" data-method="single"><h4>개별 제작 · 완성품 ×1<small>식용 금 가루 1개 사용</small></h4><div class="ingredients-grid"><div class="ing-cell" tabindex="0" data-tip="트리플 소갈비 꼬치 · 1개" aria-label="트리플 소갈비 꼬치 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/dishes/트리플_소갈비_꼬치.png?v=34" alt="트리플 소갈비 꼬치" width="42" height="42"></span><span class="ing-label">트리플 소갈비 꼬치</span><span class="ing-qty">1개</span></div><div class="ing-cell" tabindex="0" data-tip="식용 금 가루 · 1개" aria-label="식용 금 가루 · 1개"><span class="ing-icon"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루" width="42" height="42"></span><span class="ing-label">식용 금 가루</span><span class="ing-qty">1개</span></div></div></section>
+</div>
+</article></div></section>
+<section id="gold-ingredients" class="panel"><div class="section-title"><h2>금 가루 재료 이미지</h2><p>쀼릿.</p></div>
+<div class="materials-grid"><article class="material-card" tabindex="0" data-tip="금 가루"><span class="material-art"><img loading="lazy" src="assets/ingredients/금_가루.png?v=34" alt="금 가루"></span><strong>금 가루</strong></article>
+<article class="material-card" tabindex="0" data-tip="식용 금 가루"><span class="material-art"><img loading="lazy" src="assets/ingredients/식용_금_가루.png?v=34" alt="식용 금 가루"></span><strong>식용 금 가루</strong></article></div></section>
+<p class="footnote">이~야 야다야다.</p>
+</main>
+<script>
+const goldenButtons=[...document.querySelectorAll('.filter-btn')];
+const goldenMethods=[...document.querySelectorAll('.method')];
+function setGoldenView(mode){
+  goldenButtons.forEach(btn=>btn.classList.toggle('active',btn.dataset.view===mode));
+  goldenMethods.forEach(method=>method.classList.toggle('is-hidden',method.dataset.method!==mode));
+}
+goldenButtons.forEach(btn=>btn.addEventListener('click',()=>setGoldenView(btn.dataset.view)));
+setGoldenView('bulk');
+</script>
+</body></html>
