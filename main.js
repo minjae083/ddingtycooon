@@ -479,7 +479,7 @@ function renderPlanner(){
  const name=$('planner-item').value; const count=Math.max(1,Math.floor(Number($('planner-count').value)||1));
  const row=computeRows().find(r=>r.name===name);if(!row)return;
  const mats=collectRecipeDisplayMaterials(name,count);
- $('planner-result').innerHTML=`<div class="planner-stats"><div><span>제작 목표</span><strong>${fmt(count)}개</strong></div><div><span>평균 필요 ST</span><strong>${fmt(row.unitStamina*count,2)} ST</strong></div><div><span>예상 순수익</span><strong>${fmt(row.unitProfit*count,2)} G</strong></div></div><h4>전체 필요한 원재료</h4><div class="materials-wrap">${materialChips(mats)}</div><p class="footer-note">우라라 야하~ 이 이 이 야하~.</p>`;
+ $('planner-result').innerHTML=`<div class="planner-stats"><div><span>제작 목표</span><strong>${fmt(count)}개</strong></div><div><span>평균 필요 ST</span><strong>${fmt(row.unitStamina*count,2)} ST</strong></div><div><span>예상 순수익</span><strong>${fmt(row.unitProfit*count,2)} G</strong></div></div><h4>전체 필요한 원재료</h4><div class="materials-wrap">${materialChips(mats)}</div><p class="footer-note">우리 모두 모몽가를 좋아해 보는건 어떨까요.</p>`;
 }
 
 document.addEventListener('DOMContentLoaded', init);

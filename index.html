@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>띵타이쿤 RPG 효율 계산기 v19</title>
+<title>띵타이쿤 RPG 효율 계산기 v21</title>
 <style>
 :root{--bg:#f5f6f8;--surface:#fff;--surface-2:#fafbfc;--text:#1f2937;--muted:#6b7280;--line:#e5e7eb;--line-2:#eef2f7;--brand:#2563eb;--brand-soft:#eff6ff;--green:#059669;--green-soft:#ecfdf5;--gold:#b7791f;--gold-soft:#fffbeb;--shadow:0 8px 30px rgba(15,23,42,.05)}
 *{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif}a{color:var(--brand)}
@@ -142,13 +142,14 @@ html,body{width:100%;overflow-x:hidden}
 </header>
 <div class="layout">
   <aside class="sidebar">
-    <div class="side-title">메뉴</div>
+    <div class="side-title">모몽가 메뉴</div>
     <nav class="side-nav">
       <a href="#table" class="active">효율 비교</a>
-      <a href="#quick"> 빠른 계산</a>
+      <a href="#quick">빠른 계산</a>
       <a href="#planner">제작 수량 계산</a>
       <a href="#settings">장비·판매가 설정</a>
       <a href="ingredients.html" target="_blank" rel="noopener">📚 요리 재료 도감</a>
+      <a href="processing.html" target="_blank" rel="noopener">🌾 농작물 가공시설</a>
     </nav>
   </aside>
   <main class="content">
@@ -160,14 +161,14 @@ html,body{width:100%;overflow-x:hidden}
       </div>
       <div class="hero-bottom section-head">
         <h2>아이템 효율 비교</h2>
-        <p>1000ST 기준!.</p>
-        <div class="hero-actions"><a class="link-btn" href="ingredients.html" target="_blank" rel="noopener">📚 요리 재료 도감 열기</a><a class="link-btn secondary" href="#settings">⚙ 판매가·도구 설정 바로가기</a></div>
+        <p>1000ST 기준!!!!</p>
+        <div class="hero-actions"><a class="link-btn" href="ingredients.html" target="_blank" rel="noopener">📚 요리 재료 도감 열기</a><a class="link-btn" href="processing.html" target="_blank" rel="noopener">🌾 농작물 가공시설 열기</a><a class="link-btn secondary" href="#settings">⚙ 판매가·도구 설정 바로가기</a></div>
       </div>
     </section>
 
     <section class="card quick-box" id="quick">
       <div>
-        <div class="card-title"><h3>빠른 계산</h3><span class="subtext">시마지로 멋있다ㅏ</span></div>
+        <div class="card-title"><h3>빠른 계산</h3><span class="subtext">쿠센빠이의 조개해장국</span></div>
         <label class="label" for="quick-item">아이템 선택</label>
         <select id="quick-item"></select>
       </div>
@@ -211,17 +212,17 @@ html,body{width:100%;overflow-x:hidden}
           <tbody id="result-table"></tbody>
         </table>
       </div>
-      <p class="footer-note" style="margin-top:12px">쿠센빠이의 조개해장국.</p>
+      <p class="footer-note" style="margin-top:12px">우라라 야하~ 이 이 이 야하~</p>
     </section>
 
     <section class="card" id="planner">
-      <div class="card-title"><h3>⚒ 제작 수량 계산</h3><span class="subtext">원하는 제작 개수에 필요한 재료와 ST 확인</span></div>
+      <div class="card-title"><h3>⚒ 제작 수량 계산</h3><span class="subtext">이~~야 야다야다~</span></div>
       <div class="planner-inputs"><div><label class="label" for="planner-item">제작 아이템</label><select id="planner-item"></select></div><div><label class="label" for="planner-count">만들 개수</label><input type="number" id="planner-count" value="10" min="1" step="1"></div></div>
       <div id="planner-result" class="planner-result"></div>
     </section>
     <section class="card" id="settings">
-      <div class="card-title"><h3>추가 설정</h3><span class="subtext">필요할 때만 펼쳐서 쓰면 됩니다</span></div>
-      <div class="settings-note">모몽가 모몽가 모몽가 모몽가 모몽가 모몽가.</div>
+      <div class="card-title"><h3>추가 설정</h3><span class="subtext">쀼릿</span></div>
+      <div class="settings-note">샤븐님!!!!</div>
 
       <details>
         <summary>세이지 괭이·곡괭이 설정</summary>
